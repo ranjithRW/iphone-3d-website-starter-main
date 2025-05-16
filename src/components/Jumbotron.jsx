@@ -13,9 +13,9 @@ function Jumbotron() {
         });
     }
     return (
-        <div className="jumbotron-section wrapper">
+        <div className="jumbotron-section wrapper ">
             <h2 className="title">New</h2>
-            <img src={Iphone} alt='iphone' className='logo' />
+            <h2>IPhone 14</h2>
             <p className='text'>Big and bigger</p>
             <span className="description">
                 From $41.62/mo. for 24 mo. or $999 before trade-in
