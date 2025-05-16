@@ -30,7 +30,7 @@ export const ScrollAnimation = (position, target, onUpdate) => {
             onUpdate
         })
         .to('.jumbotron-section', {
-            opacity:0,
+            opacity: 0,
             scrollTrigger: {
                 trigger: ".sound-section",
                 start: "top bottom",
@@ -41,7 +41,7 @@ export const ScrollAnimation = (position, target, onUpdate) => {
             onUpdate
         })
         .to('.sound-section-content', {
-            opacity:1,
+            opacity: 1,
             scrollTrigger: {
                 trigger: ".sound-section",
                 start: "top bottom",
@@ -51,4 +51,33 @@ export const ScrollAnimation = (position, target, onUpdate) => {
             },
             onUpdate
         })
+
+
+        .to(position, {
+            x: 1.56,
+            y: 5.0,
+            z: 0.01,
+            scrollTrigger: {
+                trigger: ".display-section",
+                start: "top bottom",
+                end: "top top",
+                scrub: 2,
+                immediateRender: false,
+            },
+            onUpdate
+        })
+        .to(target, {
+            x: -0.55,
+            y: 0.32,
+            z: 0.0,
+            scrollTrigger: {
+                trigger: ".display-section",
+                start: "top bottom",
+                end: "top top",
+                scrub: 2,
+                immediateRender: false,
+            },
+            onUpdate
+        })
+
 }
