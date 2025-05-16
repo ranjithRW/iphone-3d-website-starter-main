@@ -34,7 +34,6 @@ function WebgiViewer() {
             canvas: canvaRef.current,
         })
 
-
         const manager = await viewer.addPlugin(AssetManagerPlugin)
 
         const camera = viewer.scene.activeCamera;
@@ -54,7 +53,6 @@ function WebgiViewer() {
         viewer.getPlugin(TonemapPlugin).config.clipBackground = true;
         viewer.scene.activeCamera.setCameraOptions({ controlsEnabled: false });
         window.scrollTo(0, 0);
-
 
         let needUpdate = true;
         const onUpdate = () => {
