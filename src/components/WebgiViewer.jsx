@@ -37,11 +37,14 @@ function WebgiViewer() {
 
         const manager = await viewer.addPlugin(AssetManagerPlugin)
 
+        const camera = viewer.scene.activeCamera;
+        const position = camera.position;
+        const target = camera.target;
 
         // Add plugins individually.
         await viewer.addPlugin(GBufferPlugin)
         await viewer.addPlugin(new ProgressivePlugin(32))
-        await viewer.addPlugin(new TonemapPlugin(!viewer.useRgbm))
+        await viewer.addPlugin(new TonemapPlugin(true))
         await viewer.addPlugin(GammaCorrectionPlugin)
         await viewer.addPlugin(SSRPlugin)
         await viewer.addPlugin(SSAOPlugin)
@@ -49,11 +52,11 @@ function WebgiViewer() {
 
 
         // or use this to add all main ones at once.
-        await addBasePlugins(viewer) // check the source: https://codepen.io/repalash/pen/JjLxGmy for the list of plugins added.
+        //await addBasePlugins(viewer) // check the source: https://codepen.io/repalash/pen/JjLxGmy for the list of plugins added.
 
 
         // Add more plugins not available in base, like CanvasSnipperPlugin which has helpers to download an image of the canvas.
-        await viewer.addPlugin(CanvasSnipperPlugin)
+        //await viewer.addPlugin(CanvasSnipperPlugin)
         viewer.renderer.refreshPipeline()
 
         // Import and add a GLB file.
@@ -62,11 +65,17 @@ function WebgiViewer() {
         // Load an environment map if not set in the glb file
         // await viewer.setEnvironmentMap("./assets/environment.hdr");
 
-        // Add some UI for tweak and testing.
-        const uiPlugin = await viewer.addPlugin(TweakpaneUiPlugin)
-        // Add plugins to the UI to see their settings.
-        uiPlugin.setupPlugins < IViewerPlugin > (TonemapPlugin, CanvasSnipperPlugin)
+        viewer.scene.activeCamera.setCameraOptions({ controlsEnabled: false });
+        window.scrollTo(0, 0);
 
+
+        let needUpdate = true;
+        viewer.addEventListener("preFrame", () => {
+            if (needUpdate) {
+                camera.positionTargetUpdated(true);
+                needUpdate = false;
+            }
+        })
 
     }, []);
 
