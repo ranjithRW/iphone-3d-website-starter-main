@@ -10,6 +10,9 @@ function SoundSection() {
             behavior: "smooth",
         })
     }
+    const OnBuy = () => {
+        window.open("https://www.apple.com/in/iphone/", "_blank");
+    };
     return (
         <div className="sound-section wrapper">
             <div className="body">
@@ -19,7 +22,7 @@ function SoundSection() {
                     <span className="description">From $41.62/mo. for 24 mo. or $999 before trade-in</span>
                     <ul className="links">
                         <li>
-                            <button className="button">Buy</button>
+                            <button className="button" onClick={OnBuy}>Buy</button>
                         </li>
                         <li>
                             <a className="link" onClick={handleLearnMore}>Learn More</a>

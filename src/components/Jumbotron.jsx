@@ -12,9 +12,14 @@ function Jumbotron() {
             behavior: 'smooth',
         });
     }
+
+
+    const OnBuy = () => {
+        window.open("https://www.apple.com/in/iphone/", "_blank");
+    };
     return (
         <div className="jumbotron-section wrapper ">
-            <h2 className="text">New</h2>
+            <h2 className="text">Introducing</h2>
             <h2>IPhone 14</h2>
             <p className='text'>Big and bigger</p>
             <span className="description">
@@ -22,7 +27,7 @@ function Jumbotron() {
             </span>
             <ul className="links">
                 <li>
-                    <button className='button'>Buy</button>
+                    <button className='button'  onClick={OnBuy}>Buy</button>
                 </li>
                 <li>
                     <a className='link' onClick={handleLearnMore}>Learn more</a>
