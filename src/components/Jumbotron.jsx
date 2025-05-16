@@ -14,7 +14,7 @@ function Jumbotron() {
     }
     return (
         <div className="jumbotron-section wrapper ">
-            <h2 className="title">New</h2>
+            <h2 className="text">New</h2>
             <h2>IPhone 14</h2>
             <p className='text'>Big and bigger</p>
             <span className="description">
